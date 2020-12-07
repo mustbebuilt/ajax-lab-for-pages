@@ -10,25 +10,25 @@
   <body>
     <div class="container">
       <h1>Fetch Example</h1>
-	  <nav>
-	  <ul>
-	  	<li><a href="index.html">Home</a></li>
-		<li><a href="fetch-example-no-arrow.html">Quick Fetch Example</a></li>
-	  	<li><a href="xhr-xml-example.html">XHR/XML</a></li>
-	  	<li><a href="xhr-json-example.html">XHR/JSON</a></li>
-	  	<li><a href="jquery-example.html">jQuery</a></li>
-	  	<li><a href="fetch-example.html">Fetch</a></li>
-	  	<li><a href="await-example.html">Fetch with async/await</a></li>
-		<li><a href="fetch-post.html">Send data with Fetch</a></li>
-	  </ul>
-	  </nav>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="fetch-example-no-arrow.html">Quick Fetch Example</a></li>
+          <li><a href="xhr-xml-example.html">XHR/XML</a></li>
+          <li><a href="xhr-json-example.html">XHR/JSON</a></li>
+          <li><a href="jquery-example.html">jQuery</a></li>
+          <li><a href="fetch-example.html">Fetch</a></li>
+          <li><a href="await-example.html">Fetch with async/await</a></li>
+          <li><a href="fetch-post.html">Send data with Fetch</a></li>
+        </ul>
+      </nav>
       <p>
         The Fetch API is a Modern wrapper for the classic XMLHttpRequest method.
       </p>
-	  <p>This illustraitve example only outputs to the console as:</p>
-	  <div class="imgBox">
-		<img src="images/console-output-fetch.png" alt="Console Output">	
-	  </div>	
+      <p>This illustraitve example only outputs to the console as:</p>
+      <div class="imgBox">
+        <img src="images/console-output-fetch.png" alt="Console Output" />
+      </div>
       <p>
         As a newer feature check browser support at
         <a href="https://caniuse.com/#search=fetch">caniuse</a>.
@@ -42,21 +42,25 @@
     </div>
   </body>
   <script>
-    (function() {
+    (function () {
       // IIFE
       let api = "data/myData.json";
-      // let api = "//www.ywonline.co.uk/web/newincid.nsf/incidentsjson";
-      fetch(api)
-        .then(function(response){
-		return response.json()  
-	  	})
-       .then(function(myJson){
-          console.dir(myJson)
-        })
-        .catch(function(){
-		  console.log("damn that Jason")
-	   })
+      // http only
+      //var api = "//ywonline.co.uk/web/newincid.nsf/incidentsjson";
+      // https
+      //var api = "//got-quotes.herokuapp.com/quotes";
+      //var api = "https://api.coronavirus.data.gov.uk/v1/data?filters=areaType=nation;areaName=england&structure={%22date%22:%22date%22,%22newCases%22:%22newCasesByPublishDate%22}"
 
-    })()
+      fetch(api)
+        .then(function (response) {
+          return response.json();
+        })
+        .then(function (myJson) {
+          console.dir(myJson);
+        })
+        .catch(function () {
+          console.log("damn that Jason");
+        });
+    })();
   </script>
 </html>
