@@ -46,6 +46,35 @@
       </form>
       <div>Age: <span class="age"></span></div>
     </div>
-    
+    <script>
+(function() {
+ var api = "https://mustbebuilt.co.uk/SHU/WAD/demo/xhr/posted-api.php";
+ var myForm = document.getElementById("myForm");
+ myForm.addEventListener("submit", ev => {
+ ev.preventDefault();
+ var formData = new FormData(myForm);
+ var sendObject = {};
+ console.dir(formData);
+ formData.forEach(function(value, key) {
+ sendObject[key] = value;
+ });
+ console.dir(sendObject);
+ var sendStr = JSON.stringify(sendObject);
+ console.dir(sendStr);
+ //
+ fetch(api, {
+ method: "post",
+ body: sendStr,
+ headers: {
+ "Content-Type": "application/json" }
+ }).then(response => response.json())
+ .then(myJson => {
+ console.dir(myJson);
+ document.querySelector(".age").innerText = myJson.age
+ })
+ });
+ })();
+
+    </script>
   </body>
 </html>
